@@ -1,1 +1,1 @@
-Gallery App - Made with React
+Color Project
