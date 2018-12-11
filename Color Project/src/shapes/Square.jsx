@@ -1,18 +1,10 @@
 import React from "react";
 
-const Square = ({ x, y, height, width, color }) => {
+const Square = ({ ...rest }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height}>
-      <g fill={color}>
-        <rect
-          x={x}
-          y={y}
-          width={width}
-          height={height}
-          style={{
-            fill: { color }
-          }}
-        />
+    <svg xmlns="http://www.w3.org/2000/svg" {...rest}>
+      <g {...rest}>
+        <rect {...rest} />
       </g>
     </svg>
   );
