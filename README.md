@@ -1,2 +1,0 @@
-# asets-lux.com
-Assignments
