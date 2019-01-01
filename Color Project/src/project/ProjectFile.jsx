@@ -18,11 +18,7 @@ class ProjectFile extends Component {
     lastUsedColors: Array(4).fill(defaultColor)
   };
 
-  handleEvents = (event, prop) => {
-    const newState = { ...this.state };
-    newState[prop] = event.target.value;
-    this.setState(newState);
-  };
+  handleEvents = ({ target: { id, value } }) => this.setState({ [id]: value });
 
   handleActions = (newColor, action) => () => {
     const { lastUsedColors } = this.state;
@@ -69,9 +65,9 @@ class ProjectFile extends Component {
 
   render() {
     const { id, show } = this.props;
-    const openFile = `loadFile${id}`;
     const { shape, color, lastUsedColors } = this.state;
     const { handleEvents, handleActions, loadFile, saveFile } = this;
+    const openFile = `loadFile${id}`;
     const last = lastUsedColors.length;
 
     return (
@@ -87,8 +83,8 @@ class ProjectFile extends Component {
               <label>Select Shape</label>
               <select
                 className="form-control"
-                id="imageShape"
-                onChange={event => handleEvents(event, "shape")}
+                id="shape"
+                onChange={handleEvents}
                 value={shape}
               >
                 {shapes.map(shape => (
@@ -102,9 +98,9 @@ class ProjectFile extends Component {
               <label>Colour Code:</label>
               <input
                 type="color"
-                name="imageColor"
+                id="color"
                 className="form-control"
-                onChange={event => handleEvents(event, "color")}
+                onChange={handleEvents}
                 value={color}
               />
             </div>
