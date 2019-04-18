@@ -1,2 +1,2 @@
 # asets-lux.com
-Assignments
+https://itzbkp.github.io/asets-lux.com/
